@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         FOSSA_API_KEY = credentials('FOSSA_API_KEY')
+        TMPDIR = "${env.WORKSPACE}/tmp"
     }
 
     stages {
@@ -43,6 +44,7 @@ pipeline {
         stage('Run FOSSA Scan') {
             steps {
                 dir('employee-api') {
+                    sh 'mkdir -p $TMPDIR'
                     sh 'fossa analyze --debug'
                     sh 'fossa test --timeout 600'
                 }
