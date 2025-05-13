@@ -17,9 +17,7 @@ pipeline {
                 dir('employee-api') {
                     script {
                         echo "Current directory: ${pwd()}"
-                        if (!fileExists('go.mod')) {
-                            error("ERROR: go.mod not found in ${pwd()}!")
-                        }
+                        
                     }
                 }
             }
