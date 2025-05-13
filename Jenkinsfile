@@ -23,14 +23,6 @@ pipeline {
             }
         }
 
-        stage('Setup Go') {
-            steps {
-                dir('employee-api') {
-                    sh 'go version'
-                    sh 'go mod download'
-                }
-            }
-        }
 
         stage('Install FOSSA CLI') {
             steps {
