@@ -27,6 +27,7 @@ pipeline {
 
         stage('Install FOSSA CLI') {
             steps {
+                sh 'mkdir -p tmp'
                 sh 'curl -H "Cache-Control: no-cache" https://raw.githubusercontent.com/fossas/fossa-cli/master/install-latest.sh | bash'
                 sh 'fossa --version'
             }
