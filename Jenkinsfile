@@ -35,7 +35,7 @@ pipeline {
             steps {
                 dir('employee-api') {
                     sh 'fossa init || true'
-                    sh 'fossa configure --api-key $FOSSA_API_KEY'
+                    
                 }
             }
         }
@@ -187,7 +187,7 @@ pipeline {
                     to: 'rajeevsunny05@gmail.com'
                 )
             }
-            slackSend channel: '#alerts', message: "FOSSA scan failed: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
+        
         }
     }
 }
